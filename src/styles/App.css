@@ -14,27 +14,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .door {
   display: flex;
   justify-content: center;
@@ -46,10 +25,19 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }
 
-.door h1 {
-  color:white;
+h1 {
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.door.hidden {
+  color: white;
 }
 
 .door h1:hover {
   cursor: pointer;
 }
+

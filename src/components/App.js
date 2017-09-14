@@ -3,14 +3,30 @@ import ItemList from './ItemList'
 import '../styles/App.css';
 
 class App extends Component {
-  render() {
-    return (
+  constructor() {
+    super();
+    this.state = {
+      active: true,
+    }
+    this.toggleClass = this.toggleClass.bind(this)
+  }
 
+  toggleClass(e) {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+    
+  }
+  render() {
+
+    return (
       <div className="App">
-        <div className="door">
-          <h1>OPEN</h1>
+        <div className={this.state.active ? 'door' : 'door.hidden'}>
+          <h1 onClick={this.toggleClass} 
+            className={this.state.active ? 'h1' : 'hidden'}>
+            OPEN
+          </h1>
         </div>
-        <ItemList />
+        <ItemList class={this.state.active}  />
       </div>
     )
   }

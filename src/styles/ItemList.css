@@ -1,3 +1,9 @@
-.item-list-container {
+.hidden {
   display: none;
 }
+
+.show {
+  display: flex;
+  flex-direction: column;
+}
+

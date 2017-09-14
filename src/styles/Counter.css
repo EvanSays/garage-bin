@@ -1,0 +1,7 @@
+.counter-container {
+  display: flex;
+}
+
+.counter-container p {
+  margin: 10px;
+}

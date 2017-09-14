@@ -18,6 +18,10 @@ app.locals.secrets = {
   wowowow: 'I am a banana'
 };
 
+app.get('/', (request, response) => {
+  response.status(200).sendFile(path.join(__dirname, './build', 'index.html'));
+});
+
 app.get('/api/item', (req, res) => {
   db('item')
   .select()
@@ -25,9 +29,20 @@ app.get('/api/item', (req, res) => {
     .catch(error => res.status(500).json({ error }));
 })
 
-// app.get('/', (request, response) => {
-//   response.status(200).sendFile(path.join(__dirname, './build', 'index.html'));
-// });
+app.post('/api/item', (req, res) => {
+
+  
+  const newItem = req.body;
+  for (const requiredParam of ['name', 'reason', 'cleanliness']) {
+    if (!req.body[requiredParam]) {
+      return res.status(422).json(`Missing required parameter ${requiredParam}. Instead recieved '${Object.keys(req.body)}'.`);
+    }
+  }
+  return db('item')
+    .insert(newItem, 'id')
+    .then(item => res.status(201).json({ id: item[0] }))
+    .catch(error => res.status(500).json({ error }));
+})
 
 app.get('/api/secrets', (request, response) => {
   const secrets = app.locals.secrets;

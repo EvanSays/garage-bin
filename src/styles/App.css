@@ -1,4 +1,16 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans"
+}
 .App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("https://wallpaperlayer.com/img/2015/9/warm-colors-wallpaper-2527-2705-hd-wallpapers.jpg"); */
+  background-color: #F26A66;
   text-align: center;
 }
 
@@ -21,4 +33,23 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.door {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 600px;
+  width: 80%;
+  border-radius: 30px;
+  background-color: #303452;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.door h1 {
+  color:white;
+}
+
+.door h1:hover {
+  cursor: pointer;
 }

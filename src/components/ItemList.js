@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Item from './Item';
 import AddItem from './AddItem';
 import Counter from './Counter';
+import '../styles/ItemList.css';
 
 class ItemList extends Component {
   constructor() {
@@ -107,8 +108,7 @@ render() {
 
 
     return (
-      <div>
-        <h1>Garage Bin</h1>
+      <div className="item-list-container">
         <Counter totals={totals} />
         <select id="sort" 
                 name="sort"

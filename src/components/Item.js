@@ -3,9 +3,9 @@ import React from 'react';
 const Item = ({items}) => {
   return (
     <div>
-      <p>{items.name}</p>
-      <p>{items.reason}</p>
-      <p>{items.cleanliness}</p>
+      <p>name: {items.name}</p>
+      <p>reason: {items.reason}</p>
+      <p>cleanliness: {items.cleanliness}</p>
     </div>
   )
 }

@@ -5,8 +5,8 @@ import Counter from './Counter';
 import '../styles/ItemList.css';
 
 class ItemList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
       this.state = {
         items: [],
         order: 'decending',
@@ -106,9 +106,10 @@ render() {
         return <Item items={item} key={Math.round(Date.now() * Math.random())} />
     })
 
-
+    console.log('this.props.class', this.props.class);
+    
     return (
-      <div className="item-list-container">
+      <div className={this.props.class ? 'hidden' : 'show'}>
         <Counter totals={totals} />
         <select id="sort" 
                 name="sort"

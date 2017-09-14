@@ -1,44 +1,29 @@
 import React, { Component } from 'react';
 
 class AddItem extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       reason: '',
       cleanliness: ''
     }
-    this.handleAddItemClick = this.handleAddItemClick.bind(this);
+    console.log('this.props', this.props);
+    this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }
   
-  handleAddItemClick() {
-    const { name, reason, cleanliness } = this.state
+  handleOnChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
-    const body = Object.assign({}, { name }, { reason }, { cleanliness })
-
-    fetch('/api/item', {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((info) => console.log('info', info)
-      )
-      .catch(function (error) {
-        console.log('Request failed:', error);
-      })
+  handleOnClick() {
+    this.props.handleAddItemClick(this.state);
     this.setState({
       name: '',
       reason: '',
       cleanliness: '',
     });
-}
-
-  handleOnChange(event) {
-    console.log(event.target.value);
-    
-    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -71,7 +56,7 @@ class AddItem extends Component {
                placeholder="cleanliness" 
                onChange={this.handleOnChange} 
         /> */}
-        <button onClick={this.handleAddItemClick}>Add Item</button>
+        <button onClick={this.handleOnClick}>Add Item</button>
       </div>
     );
   }

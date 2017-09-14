@@ -10,12 +10,14 @@ class ItemList extends Component {
       this.state = {
         items: [],
         order: 'decending',
-        totals: {}
+        totals: {},
+        active: true,
       }
     this.handleSortChange = this.handleSortChange.bind(this);
     this.handleAddItemClick = this.handleAddItemClick.bind(this);
     this.sortConditional = this.sortConditional.bind(this);
     this.calculateTotals = this.calculateTotals.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
   }
 
 componentDidMount() {
@@ -30,6 +32,11 @@ componentDidMount() {
     .catch(function (error) {
       console.log('Request failed:', error);
     })
+}
+
+toggleClass(e) {
+  const currentState = this.state.active;
+  this.setState({ active: !currentState });
 }
 
 calculateTotals(array) {
@@ -95,7 +102,7 @@ sortItems(num1, num2) {
   }
 
 render() {
-  const { items, totals} = this.state;
+  const { items, totals, active} = this.state;
 
   if (!items) {
     return ( <div>
@@ -103,10 +110,12 @@ render() {
              </div> )
     } else {
       const item = items.map(item => {
-        return <Item items={item} key={Math.round(Date.now() * Math.random())} />
+        return <Item items={item}
+                     id={item.id} 
+                     toggleClass={this.toggleClass}
+                     active={active}
+                     key={Math.round(Date.now() * Math.random())}/>
     })
-
-    console.log('this.props.class', this.props.class);
     
     return (
       <div className={this.props.class ? 'hidden' : 'show'}>

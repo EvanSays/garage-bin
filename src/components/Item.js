@@ -1,13 +1,19 @@
 import React from 'react';
 import '../styles/Item.css';
 
-const Item = ({items}) => {
+const Item = ({ items, toggleClass, active }) => {
   return (
     <div className="item-container">
-      <p>name: {items.name}</p>
-      <p>reason: {items.reason}</p>
-      <p>cleanliness: {items.cleanliness}</p>
-      <button>Edit</button>
+      <div onClick={toggleClass} className="name-container">
+        <p> name: {items.name}</p>
+      </div>
+      <div className={active ? 'item-hidden' : 'item-show'}>
+        <p>reason: {items.reason}</p>
+        <p>cleanliness: {items.cleanliness}</p>
+        <div className="button-container">
+          <button>Edit</button>
+        </div>
+      </div>
     </div>
   )
 }

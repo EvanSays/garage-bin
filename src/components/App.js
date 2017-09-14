@@ -14,7 +14,6 @@ class App extends Component {
   toggleClass(e) {
     const currentState = this.state.active;
     this.setState({ active: !currentState });
-    
   }
   render() {
 

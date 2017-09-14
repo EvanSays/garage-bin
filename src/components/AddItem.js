@@ -8,7 +8,6 @@ class AddItem extends Component {
       reason: '',
       cleanliness: ''
     }
-    console.log('this.props', this.props);
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }

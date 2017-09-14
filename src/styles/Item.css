@@ -1,6 +1,39 @@
 .item-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  border: 1px solid black;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 10px;
+  background-color: #2E3746;
+  border-radius: 5px;
+}
+
+.item-container p {
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.item-container button {
+  width: 90%;
+  margin: 5px;
+}
+
+.item-hidden {
+  display: none;
+  width: 100%;
+}
+.item-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-container:hover {
+  cursor: pointer;
 }

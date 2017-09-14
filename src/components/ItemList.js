@@ -11,7 +11,7 @@ class ItemList extends Component {
   }
 
 componentDidMount() {
-  fetch('http://localhost:3000/api/item')
+  fetch('/api/item')
     .then((res) => res.json())
     .then((info) => {
       this.setState({items: info.data})
@@ -27,7 +27,7 @@ render() {
     return ( <div></div> )
     } else {
       const item = this.state.items.map(item => {
-        return <Item items={item}/>
+        return <Item items={item} key={Math.round(Date.now() * Math.random())} />
     })
     return (
       <div>

@@ -5,10 +5,14 @@ import '../styles/App.css';
 class App extends Component {
   render() {
     return (
+
       <div className="App">
+        <div className="door">
+          <h1>OPEN</h1>
+        </div>
         <ItemList />
       </div>
-    );
+    )
   }
 }
 

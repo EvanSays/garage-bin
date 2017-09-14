@@ -4,11 +4,12 @@ class AddItem extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'one',
-      reason: 'two',
-      cleanliness: 'sparkling'
+      name: '',
+      reason: '',
+      cleanliness: ''
     }
-    this.handleAddItemClick = this.handleAddItemClick.bind(this)
+    this.handleAddItemClick = this.handleAddItemClick.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
   
   handleAddItemClick() {
@@ -27,14 +28,41 @@ class AddItem extends Component {
       .catch(function (error) {
         console.log('Request failed:', error);
       })
+    this.setState({
+      name: '',
+      reason: '',
+      cleanliness: '',
+    });
 }
 
+  handleOnChange(event) {
+    console.log(event.target.value);
+    
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
   render() {
+    const { name, reason, cleanliness } = this.state
     return (
       <div>
-        <input type="text" placeholder="name" />
-        <input type="text" placeholder="reason" />
-        <input type="text" placeholder="cleanliness" />
+        <input type="text"
+               name="name" 
+               value={name} 
+               placeholder="name" 
+               onChange={this.handleOnChange} 
+        />
+        <input type="text"
+               name="reason" 
+               value={reason} 
+               placeholder="reason" 
+               onChange={this.handleOnChange} 
+        />
+        <input type="text"
+               name="cleanliness" 
+               value={cleanliness} 
+               placeholder="cleanliness" 
+               onChange={this.handleOnChange} 
+        />
         <button onClick={this.handleAddItemClick}>Add Item</button>
       </div>
     );

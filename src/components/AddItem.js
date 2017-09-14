@@ -57,12 +57,20 @@ class AddItem extends Component {
                placeholder="reason" 
                onChange={this.handleOnChange} 
         />
-        <input type="text"
+        <select id="cleanliness" 
+                name="cleanliness" 
+                onChange={this.handleOnChange}>
+          <option>cleanliness</option>
+          <option>sparkling</option>
+          <option>dusty</option>
+          <option>rancid</option>
+        </select>
+        {/* <input type="text"
                name="cleanliness" 
                value={cleanliness} 
                placeholder="cleanliness" 
                onChange={this.handleOnChange} 
-        />
+        /> */}
         <button onClick={this.handleAddItemClick}>Add Item</button>
       </div>
     );

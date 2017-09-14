@@ -25,9 +25,9 @@ app.get('/api/item', (req, res) => {
     .catch(error => res.status(500).json({ error }));
 })
 
-// app.get('/', (request, response) => {
-//   response.status(200).sendFile(path.join(__dirname, './build', 'index.html'));
-// });
+app.get('/', (request, response) => {
+  response.status(200).sendFile(path.join(__dirname, './build', 'index.html'));
+});
 
 app.get('/api/secrets', (request, response) => {
   const secrets = app.locals.secrets;

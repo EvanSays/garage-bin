@@ -6,6 +6,7 @@ const Item = ({ items, toggleClass, active }) => {
     <div className="item-container">
       <div onClick={toggleClass} className="name-container">
         <p> name: {items.name}</p>
+        <input type="text" placeholder={items.name}/>
       </div>
       <div className={active ? 'item-hidden' : 'item-show'}>
         <p>reason: {items.reason}</p>

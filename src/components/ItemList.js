@@ -118,7 +118,7 @@ render() {
     })
     
     return (
-      <div className={this.props.class ? 'hidden' : 'show'}>
+      <div className={this.props.class ? 'itemlist hidden' : 'itemlist show'}>
         <Counter totals={totals} />
         <select id="sort" 
                 name="sort"

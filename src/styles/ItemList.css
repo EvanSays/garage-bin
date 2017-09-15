@@ -1,9 +1,10 @@
-.hidden {
+.itemlist.hidden {
   display: none;
 }
 
-.show {
+.itemlist.show {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 

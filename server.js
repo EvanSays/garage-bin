@@ -30,8 +30,6 @@ app.get('/api/item', (req, res) => {
 })
 
 app.post('/api/item', (req, res) => {
-
-  
   const newItem = req.body;
   for (const requiredParam of ['name', 'reason', 'cleanliness']) {
     if (!req.body[requiredParam]) {
@@ -44,22 +42,8 @@ app.post('/api/item', (req, res) => {
     .catch(error => res.status(500).json({ error }));
 })
 
-app.get('/api/secrets', (request, response) => {
-  const secrets = app.locals.secrets;
-
-  response.json({ secrets });
-});
-
-
-app.get('/api/secrets/:id', (request, response) => {
-  const { id } = request.params;
-  const message = app.locals.secrets[id];
-
-  if (!message) { return response.sendStatus(404) };
-
-  response.status(200).json({ id, message });
-});
-
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
+
+module.exports = app;

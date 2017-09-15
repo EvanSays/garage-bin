@@ -4,10 +4,22 @@ import React from 'react';
 const Counter = ({ totals }) => {
   return (
     <div className="counter-container">
-      <p>Total: {totals.total} </p>
-      <p>Sparkling: {totals.sparkling} </p>
-      <p>Dusty: {totals.dusty} </p>
-      <p>Rancid: {totals.rancid} </p>
+      <div className="key-container">
+        <p className="title">Total: </p>
+        <p>{totals.total} </p>
+      </div>
+      <div className="key-container">
+        <p className="title">Sparkling: </p>
+        <p>{totals.sparkling} </p>
+      </div>
+      <div className="key-container">
+        <p className="title">Dusty: </p>
+        <p>{totals.dusty} </p>
+      </div>
+      <div className="key-container">
+        <p className="title">Rancid: </p>
+        <p>{totals.rancid} </p>
+      </div>
     </div>
   )
 }

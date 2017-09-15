@@ -18,16 +18,15 @@ class ItemList extends Component {
     this.sortConditional = this.sortConditional.bind(this);
     this.calculateTotals = this.calculateTotals.bind(this);
     this.toggleClass = this.toggleClass.bind(this);
+    this.handleItemCleanChange = this.handleItemCleanChange.bind(this);
   }
 
 componentDidMount() {
-  // const { order } = this.state;
   fetch('/api/item')
     .then((res) => res.json())
     .then((info) => {
       this.setState({ items: info.data })
       this.calculateTotals(info.data)
-      // this.sortConditional(order)
     })
     .catch(function (error) {
       console.log('Request failed:', error);
@@ -101,6 +100,22 @@ sortItems(num1, num2) {
     this.sortConditional(order)
   }
 
+  handleItemCleanChange(e) {
+    const { items } = this.state;
+    const id = parseInt(e.target.id, 10)
+    const value = e.target.value
+
+    const array = items.map(item => {
+      if(item.id === id) {
+        item.cleanliness = value
+      } 
+      return item
+    })
+
+    this.setState({ items: array })
+    this.calculateTotals(items)
+  }
+
 render() {
   const { items, totals, active} = this.state;
 
@@ -114,19 +129,22 @@ render() {
                      id={item.id} 
                      toggleClass={this.toggleClass}
                      active={active}
+                     handleItemCleanChange={this.handleItemCleanChange}
                      key={Math.round(Date.now() * Math.random())}/>
     })
     
     return (
       <div className={this.props.class ? 'itemlist hidden' : 'itemlist show'}>
-        <Counter totals={totals} />
-        <select id="sort" 
-                name="sort"
-                onChange={this.handleSortChange}>
-          <option>decending</option>
-          <option>acending</option>
-        </select>
         <AddItem handleAddItemClick={this.handleAddItemClick}/>
+        <div className="totals-container">
+          <Counter totals={totals} />
+          <select id="sort" 
+                  name="sort"
+                  onChange={this.handleSortChange}>
+            <option>decending</option>
+            <option>acending</option>
+          </select>
+        </div>
         {item}
       </div>  
       );

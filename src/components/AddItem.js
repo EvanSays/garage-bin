@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/AddItem.css';
 
 class AddItem extends Component {
   constructor(props) {
@@ -26,9 +27,9 @@ class AddItem extends Component {
   }
 
   render() {
-    const { name, reason, cleanliness } = this.state
+    const { name, reason } = this.state
     return (
-      <div>
+      <div className="add-item">
         <input type="text"
                name="name" 
                value={name} 
@@ -41,7 +42,7 @@ class AddItem extends Component {
                placeholder="reason" 
                onChange={this.handleOnChange} 
         />
-        <select id="cleanliness" 
+        <select id="cleanliness1" 
                 name="cleanliness" 
                 onChange={this.handleOnChange}>
           <option>cleanliness</option>

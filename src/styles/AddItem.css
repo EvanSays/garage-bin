@@ -1,0 +1,30 @@
+.add-item {
+  width: 700px;
+  background-color: #24689a;
+  padding: 12px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.add-item input,
+.add-item select,
+.add-item button {
+  height: 40px;
+  border: 1px solid black;
+  margin-top: 10px;
+  font-size: 20px;
+  padding-left: 10px;
+  text-transform: capitalize;
+}
+
+.add-item button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+#cleanliness1 {
+  text-transform: capitalize;
+}

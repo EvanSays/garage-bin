@@ -12,23 +12,31 @@
   color: white;
   text-align: left;
   padding-left: 10px;
+  text-transform: capitalize;
 }
 
-.button-container {
-  width: 100%;
+  .item-container select{
+  height: 25px;
+  margin-left: 10px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.key-container {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
-.item-container button {
-  width: 90%;
-  margin: 5px;
+.key-container .key {
+  font-weight: 600;
+  color: #f9af94;
 }
 
 .item-hidden {
   display: none;
   width: 100%;
 }
+
 .item-show {
   display: flex;
   flex-direction: column;

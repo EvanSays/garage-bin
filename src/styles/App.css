@@ -2,37 +2,39 @@
   box-sizing: border-box;
   font-family: "Open Sans"
 }
+
 .App {
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-image: url("https://wallpaperlayer.com/img/2015/9/warm-colors-wallpaper-2527-2705-hd-wallpapers.jpg"); */
-  background-color: #F26A66;
   text-align: center;
 }
 
 .door {
   position: absolute;
   top: 50px;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-align: end;
   align-items: flex-end;
-  height: 600px;
-  width: 80%;
-  border-radius: 30px;
+  height: 700px;
+  width: 100%;
+  border-radius: 15px;
   background-color: #303452;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
-  overflow:hidden;
-  transition:transform 0.3s ease-out; 
-  transform:scaleY(1); 
-  transform-origin:top;
-}
-.door.collapse{
-  transform: scaleY(0);
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+  transform: scaleY(1);
+  transform-origin: top;
 }
 
+.door.collapse {
+  transform: scaleY(0);
+}
 
 .open {
   color: white;
@@ -46,7 +48,11 @@
   cursor: pointer;
 }
 
+.title {
+  font: 100px;
+}
 
-/* .door.collapsed {
-  transform: scaleY(0);
-} */
+.App h1 {
+  font-size: 200px;
+  margin: 0px;
+}

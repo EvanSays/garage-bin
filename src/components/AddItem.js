@@ -42,7 +42,7 @@ class AddItem extends Component {
                placeholder="reason" 
                onChange={this.handleOnChange} 
         />
-        <select id="cleanliness1" 
+        <select id="cleanliness" 
                 name="cleanliness" 
                 onChange={this.handleOnChange}>
           <option>cleanliness</option>

@@ -22,10 +22,12 @@ class ItemList extends Component {
   }
 
 componentDidMount() {
+  const { order } = this.state
   fetch('/api/item')
     .then((res) => res.json())
     .then((info) => {
       this.setState({ items: info.data })
+      this.sortConditional(order)
       this.calculateTotals(info.data)
     })
     .catch(function (error) {
@@ -52,10 +54,9 @@ this.setState({totals: totalObj})
 }
 
 handleSortChange(e) {
-  const { order } = this.state;
   const target = e.target.value;
   this.setState({ order: target })
-  this.sortConditional(order)
+  this.sortConditional(target)
 }
 
 sortConditional(order) {

@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: "Open Sans"
+  /* font-family: "Helvetica Neue" */
+}
+
+input,
+select {
+  font-family:'Courier New';
 }
 
 .App {
@@ -14,14 +19,14 @@
 
 .door {
   position: absolute;
-  top: 50px;
+  top: 0px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-align: end;
   align-items: flex-end;
-  height: 700px;
+  height: 100%;
   width: 100%;
   border-radius: 15px;
   background-color: #303452;
@@ -46,6 +51,7 @@
 
 .open:hover {
   cursor: pointer;
+  color: #cecece;
 }
 
 .title {
@@ -53,6 +59,32 @@
 }
 
 .App h1 {
-  font-size: 200px;
+  font-size: 100px;
   margin: 0px;
+}
+
+.App button {
+  margin-top: 15px;
+  background-color: white;
+  font-size: 20px;
+  border: 1px solid black;
+}
+
+.close:hover {
+  color: white;
+  cursor: pointer;
+  animation-direction: alternate;
+  animation-duration: 3s;
+  animation-iteration-count: 2;
+  animation-name: color_change;
+}
+
+@keyframes color_change {
+  from {
+    background-color: #645AFF;
+  }
+  to {
+    background-color: #FF006A;
+    ;
+  }
 }

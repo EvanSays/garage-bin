@@ -23,7 +23,7 @@ class App extends Component {
         <h1 classname="title">GARAGE BIN</h1>
         <div className={this.state.active ? 'door' : 'door collapse'}>
           <h1 onClick={this.toggleClass} 
-            className={this.state.active ? 'open show' : ' open hidden'}>
+              className={this.state.active ? 'open show' : ' open hidden'}>
             OPEN
           </h1>
         </div>

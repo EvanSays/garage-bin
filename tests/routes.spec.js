@@ -16,7 +16,6 @@ describe('Client Routes', () => {
     chai.request(server)
       .get('/')
       .end((err, res) => {
-        // res.should.have.status(200);
         res.should.be.html;
         done();
       });
